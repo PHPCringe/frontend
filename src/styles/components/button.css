@@ -1,0 +1,8 @@
+.btn {
+    @apply text-gray-600 px-5 py-2 rounded-md ;
+}
+
+.btn.btn-gradient {
+    @apply text-white font-semibold;
+    background: var(--bg-gradient-primary);
+}
