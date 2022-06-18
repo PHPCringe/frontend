@@ -24,8 +24,8 @@
                     <input type="text" class="navbar__search | rounded-full border border-indigo-500 px-5 py-2 pl-10 text-gray-700" placeholder="Search funding name..">
                 </div>
 
-                <router-link to="/sign-up" class="btn btn-outline border border-indigo-600">Sign in</router-link>
-                <router-link to="/login" class="btn btn-gradient">Register</router-link>
+                <router-link to="/auth/sign-in" class="btn btn-outline border border-indigo-600">Sign in</router-link>
+                <router-link to="/auth/register" class="btn btn-gradient">Register</router-link>
             </div>
         </div>
     </div>

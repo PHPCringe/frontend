@@ -13,7 +13,6 @@ const go = () => {
 
 <template>
   <div>
-    <navigation-bar/>
 
 
     <!-- Section Hero -->
