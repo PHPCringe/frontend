@@ -29,7 +29,6 @@
             </div>
         </div>
     </div>
-    <footer></footer>
 </template>
 <style>
 .navbar-container {

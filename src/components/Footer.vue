@@ -9,25 +9,50 @@ const toggleLocales = () => {
 </script>
 
 <template>
-  <nav text-xl mt-6>
-    <RouterLink class="icon-btn mx-2" to="/" :title="t('button.home')">
-      <div i-carbon-campsite />
-    </RouterLink>
-
-    <button class="icon-btn mx-2 !outline-none" :title="t('button.toggle_dark')" @click="toggleDark()">
-      <div i="carbon-sun dark:carbon-moon" />
-    </button>
-
-    <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales()">
-      <div i-carbon-language />
-    </a>
-
-    <RouterLink class="icon-btn mx-2" to="/about" :title="t('button.about')">
-      <div i-carbon-dicom-overlay />
-    </RouterLink>
-
-    <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank" title="GitHub">
-      <div i-carbon-logo-github />
-    </a>
-  </nav>
+  <footer class="py-12 w-full bg-[#D9D9D9]">
+    <Container>
+      <div class="footer-top | flex justify-between">
+        <img src="/images/Logo.png" class="h-16">
+        
+        <!-- Socials -->
+        <ul>
+          <li>
+          </li>
+        </ul>
+      </div>
+      <hr class="footer-separator border-gray-400 my-6">
+      <div class="footer-bottom flex justify-between">
+        <nav class="footer-menu" >
+          <ul class="flex gap-3">
+            <li class="footer__menu-item">
+              <router-link to="/">
+                Discover
+              </router-link>
+            </li>
+            <li class="footer__menu-item">
+              <router-link to="/">
+                How it Works
+              </router-link>
+            </li>
+            <li class="footer__menu-item">
+              <router-link to="/">
+                About Us
+              </router-link>
+            </li>
+          </ul>
+        </nav>  
+        <p class="copyright">
+          Made with ❤️  © Kolektiva By PHP Cringe
+        </p>
+      </div>
+    </Container>
+  </footer>
 </template>
+<style>
+
+.footer__menu-item a {
+  @apply text-base hover:text-blue-600;
+  color: black;
+  font-weight: semibold;
+}
+</style>
