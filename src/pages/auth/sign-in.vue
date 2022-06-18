@@ -4,9 +4,13 @@
         <h1 class="text-3xl mb-5 font-semibold text-black">Welcome Back</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 
-        <form>
-            
+        <form class="my-5 mb-10">
+            <form-input label="Email" placeholder="john.doe@gmail.com"></form-input>
+            <form-input label="Password" placeholder="********"></form-input>
+            <FormButton :block="true">Sign in</FormButton>
         </form>
+
+        <p class="text-center">Do not have an account? <router-link to="/auth/register" class="text-link">Sign Up</router-link></p>
     </div>
 </div>
 </template>
