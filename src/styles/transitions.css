@@ -1,0 +1,10 @@
+.slide-down-enter-active, .slide-down-leave-active {
+    transition: all .3s;
+    overflow: hidden;
+}
+.slide-down-enter-from, .slide-down-leave-to {
+    height: 0;
+}
+.slide-down-enter-to, .slide-down-leave-from {
+    max-height: 200px;
+}

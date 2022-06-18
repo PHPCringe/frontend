@@ -4,6 +4,10 @@
   --font-family: 'Poppins'
 }
 
+.bg-gradient-primary {
+  background: var(--bg-gradient-primary);
+}
+
 
 html,
 body,
@@ -35,4 +39,8 @@ body,
 }
 .row > * {
   padding:  1rem;
+}
+
+.text-link {
+  @apply text-blue-600 hover:text-blue-400;
 }

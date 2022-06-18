@@ -77,10 +77,32 @@ const numberFormat = (num: number) => {
         <p class="text-xs">{{bio}}</p>
 
         <!-- Donation -->
-        <p>
-            <span>{{numberFormat(totalDonation)}}</span> 
-            <span></span>
+        <p class="text-xs mt-3">
+            <span class="font-bold">{{numberFormat(totalDonation)}}</span> 
+            <span class="text-gray-400"> of Rp 1 million Goals</span>
         </p>
+
+        <!-- Progress bar -->
+        <progress-bar class="my-4"></progress-bar>
+
+
+        <!-- Avatars -->
+        <div class="avatars | flex">
+            <div class="avatar ">
+                <img src="/images/person1.jpg" alt="Github has donated" class="w-9 h-9 p-1 bg-white rounded-full object-cover" >
+            </div>
+            <div class="avatar ml--3">
+                <img src="/images/person2.jpg" alt="Github has donated" class="w-9 h-9 p-1 bg-white rounded-full object-cover" >
+            </div>
+            <div class="ml-2 text-xs">
+                <p>10+</p>
+                <p class="text-slate-500">Contributors</p>
+
+            </div>
+        </div>
+
+        <!-- Donate link -->
+        <router-link :to="`/collectives/id`" class="bg-gradient-primary text-white block text-center p-2 text-sm mt-4 rounded-md">Donate Now</router-link>
     </div>
 </div>
 </template>
