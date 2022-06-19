@@ -3,6 +3,12 @@
 import FormRadio from '~/components/forms/FormRadio.vue';
 const isNextStep = ref(true)
 const gotoNextStep = () => isNextStep.value = true
+const router = useRouter()
+
+const submitRegister = () => {
+    console.log('submit')
+    router.push("/dashboard")
+}
 </script>
 <template>
 <div flex items-center justify-center my-28>
@@ -47,19 +53,19 @@ const gotoNextStep = () => isNextStep.value = true
                     <h1 class="text-3xl mb-5 font-semibold text-black">Fill Out Your Organization Data</h1>
                     <p class="text-sm mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 
-                    <form class="my-5">
+                    <form class="my-5" @submit.prevent="submitRegister">
                         <div class="form-group | mb-5">
                             <label for="orgtype" class="block font-bold text-black mb-3">Organization </label>
                             <form-radio name="orgtype" id="profit" label="Profit" value="profit" class="mr-3"></form-radio>
                             <form-radio name="orgtype" id="nonprofit" label="Non-profit" value="nonprofit" class="mr-3"></form-radio>
                         </div>
                         <form-textarea label="Bio" :rows="3"/>
-                        <form-input type="number" step="1000" label="Donation Goal" placeholder="Rp100.000" prefix="Rp"></form-input>
+                        <form-input type="number" step="1000" label="Donation Goal" placeholder="100.000" prefix="Rp"></form-input>
                         <form-input label="Website" placeholder="yourwebsite.com"></form-input>
-                        <form-input label="Twitter" placeholder="@"></form-input>
+                        <form-input label="Twitter" placeholder="Your twitter username" prefix="@"></form-input>
                         <form-textarea label="Description" :rows="6" placeholder="Description about your project"/>
 
-                        <form-button type="button" :block="true">Sign Up</form-button>
+                        <form-button type="submit" :block="true">Sign Up</form-button>
                         
                         <p class="text-center mt-10">Already have an account? <router-link to="/auth/sign-in" class="text-link text-link-gradient">Sign in</router-link></p>
                     </form>

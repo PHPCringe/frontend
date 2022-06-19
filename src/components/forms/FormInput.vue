@@ -12,17 +12,29 @@ const props = defineProps({
     'type': {
         type: String,
         default: "text"
+    },
+    prefix: {
+        type: String
     }
 })
 
 </script>
 
 <template>
-    <div class="form-input mb-6">
+    <div class="form-input-group mb-6">
         <label for="form-input" class="font-bold text-black block mb-2">{{label}}</label>
-        <input :type="type" 
-                class="border border-zinc-400 rounded-md px-3 py-2 text-base w-full"
-                :placeholder="placeholder" 
-                id="form-input">
+        <div class="form-input relative overflow-hidden">
+            <span v-if="prefix"
+                class="absolute left-1 top-50% translate-y--50% px-2 ">
+            {{prefix}}
+            </span>
+            <input :type="type" 
+                    :class="{
+                        'border border-zinc-400 rounded-md px-3 py-2 text-base w-full':true,
+                        'pl-10': prefix
+                        }"
+                    :placeholder="placeholder" 
+                    id="form-input">
+        </div>
     </div>
 </template>

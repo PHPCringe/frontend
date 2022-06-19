@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const emit = defineEmits(["click"]);
+const emit = defineEmits(["click","click.prevent"]);
 const props = defineProps({
     type: {
         type: String,
@@ -17,19 +17,21 @@ const props = defineProps({
 </script>
 
 <template>
-<router-link 
-    v-if="type == 'link'" 
-    :to="to" 
-    :class="{'bg-gradient-primary text-white block text-center p-3 text-sm mt-4 rounded-md font-medium': true, 'block w-full': block}">
-    <slot>
-        Submit
-    </slot>
-</router-link>
-<button v-else 
-    @click.prevent="emit('click')"
-    :class="{'bg-gradient-primary text-white block text-center p-3 text-sm mt-4 rounded-md font-medium': true, 'w-full': block}">
-    <slot>
-        Submit
-    </slot>
-</button>
+<div :class="{'button':true, 'block': block}">
+    <router-link 
+        v-if="type == 'link'" 
+        :to="to" 
+        :class="{'bg-gradient-primary text-white block text-center p-3 text-sm mt-4 rounded-md font-medium': true, 'block w-full': block}">
+        <slot>
+            Submit
+        </slot>
+    </router-link>
+    <button v-else 
+        :type="type"
+        :class="{'bg-gradient-primary text-white block text-center p-3 text-sm mt-4 rounded-md font-medium': true, 'w-full': block}">
+        <slot>
+            Submit
+        </slot>
+    </button>
+</div>
 </template>
