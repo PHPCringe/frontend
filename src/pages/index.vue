@@ -32,8 +32,8 @@ const go = () => {
         <p class="hero__text-desc | font-normal text-gray-600 mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
       </div>
       <div class="hero__button | mt-12 z-2 relative">
-        <router-link to="/auth/sign-up" class="btn btn-outline border border-2 text-primary-gradient font-semibold border-indigo-600">Start Funding</router-link>
-        <router-link to="/auth/login" class="btn btn-gradient ml-5">Donate Now</router-link>
+        <router-link to="/auth/register" class="btn btn-outline border border-2 text-primary-gradient font-semibold border-indigo-600">Start Funding</router-link>
+        <router-link to="/auth/sign-in" class="btn btn-gradient ml-5">Donate Now</router-link>
       </div>
     </section>
 
