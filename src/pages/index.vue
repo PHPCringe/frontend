@@ -52,7 +52,7 @@ const featuredProjects = store.projects.slice(0,7)
         </div>
         <div class="section-body">
           <div class="flex flex-wrap flex-row row">
-            <collective-card v-for="project in featuredProjects" :avatar="project.avatar"
+            <collective-card v-for="project in featuredProjects" :avatar="project.avatar" @click="store.currentProject=project"
               :background="project.background" :name="project.name" :tags="project.tags" :bio="project.bio"
               :totalDonation="project.totalDonation" :targetDonation="project.targetDonation" class="w-full md:w-1/4">
             </collective-card>

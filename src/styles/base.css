@@ -1,11 +1,16 @@
 :root {
   --bg-gradient-primary: linear-gradient(to right, #942BFD, #4457FD);
+  --bg-gradient-primary2: linear-gradient(-45deg, #942BFD, #4457FD);
 
   --font-family: 'Poppins'
 }
 
 .bg-gradient-primary {
   background: var(--bg-gradient-primary);
+}
+
+.bg-gradient-primary2 {
+  background: var(--bg-gradient-primary2);
 }
 
 

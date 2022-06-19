@@ -6,7 +6,7 @@ const props = defineProps({
         default: "button"
     },
     to: {
-        type: String,
+        type: [String, Object],
         default: "/"
     },
     block: {

@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const activeTab = ref('all')
+const props = defineProps({
+    name: String
+})
 const people = [
     {
         name: 'Adrian Lewis',
@@ -33,7 +36,7 @@ const contributionTypes = [
         name: "Platinum",
         tags: "Recurring Contribution",
         bio: "Join us for Rp100.000,00 per month and support us",
-        price: 10000
+        price: 20000
     },
     {
         avatar:  "/images/collectives/tiers/av-diamond.png",
@@ -191,7 +194,7 @@ const store = useMainStore()
                         :bio="contributionType.bio"
                         :background="contributionType.background"
                         :avatar="contributionType.avatar"
-                        collectiveName="Github"
+                        :collectiveName="name"
                         class="w-full flex-shrink-0 lg:w-[30%] mb-8"
                         :tags="[contributionType.tags]">
                         <template #belowAbout>
