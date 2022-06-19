@@ -62,8 +62,9 @@ const numberFormat = (num: number) => {
 
 <template>
   <div class="card rounded-lg">
-    <div class="card-bg | relative bg-slate-700 h-20 xl:h-32 rounded-t-lg">
-      <img :src="avatar" :alt="`Image for ${name}`" class="avatar-img absolute w-16 h-16 p-1 bg-white rounded-full">
+    <div class="card-bg | relative h-20 xl:h-32 rounded-t-lg bg-cover" :style="{ backgroundImage: `url(${background})` }">
+      <img :src="avatar" :alt="`Image for ${name} `"
+        class="avatar-img absolute w-16 h-16 p-1 bg-white rounded-full object-cover">
     </div>
     <div class="card-content | pt-8 px-5">
       <h3 class="text-2xl font-semibold">
@@ -73,7 +74,7 @@ const numberFormat = (num: number) => {
       <!-- Tags -->
       <ul class="flex gap-1 my-3 flex-wrap">
         <li v-for="tag in tags">
-          <router-link :to="`/tags/${tag}`" class="tag p-1 sm:px-2 px-1 bg-slate-200 rounded-full text-xs">
+          <router-link :to="`/ tags / ${tag} `" class="tag p-1 sm:px-2 px-1 bg-slate-200 rounded-full text-xs">
             {{ tag }}
           </router-link>
         </li>
@@ -104,10 +105,12 @@ const numberFormat = (num: number) => {
       <!-- Avatars -->
       <div class="avatars | flex">
         <div class="avatar ">
-          <img src="/images/person1.jpg" alt="Github has donated" class="w-9 h-9 p-1 bg-white rounded-full object-cover">
+          <img src="/images/person1.jpg" alt="Github has donated"
+            class="w-9 h-9 p-1 bg-white rounded-full object-cover">
         </div>
         <div class="avatar ml--3">
-          <img src="/images/person2.jpg" alt="Github has donated" class="w-9 h-9 p-1 bg-white rounded-full object-cover">
+          <img src="/images/person2.jpg" alt="Github has donated"
+            class="w-9 h-9 p-1 bg-white rounded-full object-cover">
         </div>
         <div class="ml-2 text-xs">
           <p>10+</p>
@@ -118,7 +121,8 @@ const numberFormat = (num: number) => {
       </div>
 
       <!-- Donate link -->
-      <router-link to="/collectives/id" class="bg-gradient-primary text-white block text-center p-2 text-sm mt-4 rounded-md">
+      <router-link to="/collectives/id"
+        class="bg-gradient-primary text-white block text-center p-2 text-sm mt-4 rounded-md">
         Donate Now
       </router-link>
     </div>
@@ -127,7 +131,7 @@ const numberFormat = (num: number) => {
 
 <style>
 .card .avatar-img {
-    bottom: -20px;
-    left: 15px;
+  bottom: -20px;
+  left: 15px;
 }
 </style>
