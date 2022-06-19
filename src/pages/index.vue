@@ -95,8 +95,7 @@ const featuredProjects = [
       <div class="hero__text | mx-auto font-semibold tracking-wide z-2 relative">
         <h1 class="text-4xl">Collect Your Funding Project <br>With <span class="text-primary-gradient">Kolektiva</span>
         </h1>
-        <p class="hero__text-desc | font-normal text-gray-600 mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        <p class="hero__text-desc | font-medium text-gray-600 mt-6">Kolektiva is a crowdfunding website where individuals can donate and raise funds for their organizations, events, or projects.
         </p>
       </div>
       <div class="hero__button | mt-12 z-2 relative">
@@ -214,8 +213,7 @@ const featuredProjects = [
                 </div>
               </template>
               <template #content>
-                <p class="ml-10 text-gray-500"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                <p class="ml-10 text-gray-500"> Refers to the systems deployed by a business to process, pay, and audit employee-initiated expenses. Expense management includes the policies and procedures.</p>
                 <router-link to="/" class="text-link ml-10 my-5 inline-block flex gap-2 items-center">Learn More <div
                     i="carbon-arrow-right"></div>
                 </router-link>
@@ -281,10 +279,9 @@ const featuredProjects = [
         <div class="flex flex-wrap">
           <div class="left | w-full md:w-2/3 order-1 md:order-0">
             <h1 class="text-4xl  font-semibold text-black">Get to Know Us Better</h1>
-            <p class="mt-10 w-60%">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            <p class="mt-10 w-60%">Kolektiva is a crowdfunding website where individuals can donate and raise funds for their organizations, events, or projects.</p>
             <router-link to="/"
-              class="px-5 inline-block py-2 text-lg mt-12 rounded-lg hover:bg-blue-500 bg-blue-600 text-white font-bold">
+              class="bg-gradient-primary px-5 inline-block py-2 text-lg mt-12 rounded-lg text-white font-bold">
               Learn More</router-link>
 
             <!-- Grid stats -->
