@@ -17,7 +17,7 @@ const props = defineProps({
 </script>
 
 <template>
-<div :class="{'button':true, 'block': block}">
+<div :class="{'button':true, 'block': block}" @click="emit('click')">
     <router-link 
         v-if="type == 'link'" 
         :to="to" 

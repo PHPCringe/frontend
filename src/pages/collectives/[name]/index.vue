@@ -112,19 +112,21 @@ const transactions = [
 const numberFormat = (num: number) => {
   return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 1 }).format(num)
 }
+
+const store = useMainStore()
 </script>
 
 <template>
-    <div class="user-wallpaper | h-64 " style="background: url(/images/collectives/github-bg.png)"></div>
+    <div class="user-wallpaper | h-64 " :style="{ background: `url(${store.currentProject.background})`}"></div>
     <section class="user-detail">
         <Container>
             <div class="user-avatar avatar-square flex">
                 <div class="w-40 h-40 -translate-y-15">
-                    <img src="/images/collectives/github.png" alt="Github Icon">
+                    <img :src="store.currentProject.avatar" alt="Github Icon" class="object-cover h-full">
                 </div>
                 <div class="user-detail-text | ml-5 mt-5 lg:w-1/2 w-full">
-                    <h1 class="text-4xl text-black font-semibold">GitHub</h1>
-                    <p class="text-neutral-500 mt-2">GitHub, Inc. is a provider of Internet hosting for software development and social networking site for software developers</p>
+                    <h1 class="text-4xl text-black font-semibold">{{ store.currentProject.name }}</h1>
+                    <p class="text-neutral-500 mt-2">{{ store.currentProject.bio }}</p>
                 </div>
             </div>
         </Container>
@@ -189,6 +191,7 @@ const numberFormat = (num: number) => {
                         :bio="contributionType.bio"
                         :background="contributionType.background"
                         :avatar="contributionType.avatar"
+                        collectiveName="Github"
                         class="w-full flex-shrink-0 lg:w-[30%] mb-8"
                         :tags="[contributionType.tags]">
                         <template #belowAbout>

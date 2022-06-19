@@ -25,17 +25,17 @@ const toggleLocales = () => {
         <nav class="footer-menu" >
           <ul class="flex gap-3">
             <li class="footer__menu-item">
-              <router-link to="/">
+              <router-link to="/discover">
                 Discover
               </router-link>
             </li>
             <li class="footer__menu-item">
-              <router-link to="/">
-                How it Works
-              </router-link>
+              <a href="/#featured">
+                Featured
+              </a>
             </li>
             <li class="footer__menu-item">
-              <router-link to="/">
+              <router-link to="/about">
                 About Us
               </router-link>
             </li>

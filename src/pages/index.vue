@@ -8,72 +8,8 @@ const go = () => {
   if (name)
     router.push(`/hi/${encodeURIComponent(name)}`)
 }
-
-const featuredProjects = [
-  {
-    avatar: '/images/projects/github-avatar.png',
-    background: '/images/projects/github-bg.png',
-    name: 'Github',
-    tags: ['Open Source', 'Coding'],
-    bio: 'GitHub, Inc. is a provider of Internet hosting for software development and social networking site for software developers',
-    totalDonation: 100_000_000,
-    targetDonation: 1_000_000_000,
-  },
-  {
-    avatar: '/images/projects/vuejs-avatar.png',
-    background: '/images/projects/vuejs-bg.png',
-    name: 'Vue Js',
-    tags: ['Open Source', 'Coding', 'Programming'],
-    bio: 'Vue.js is an open-source model-view-viewmodel front end JavaScript framework for building user interfaces.',
-    totalDonation: 100_000_000,
-    targetDonation: 1_000_000_000,
-  },
-  {
-    avatar: '/images/projects/tensorflow-avatar.png',
-    background: '/images/projects/tensorflow-bg.png',
-    name: 'Tensorflow',
-    tags: ['Open Source', 'Machine Learning'],
-    bio: 'TensorFlow is a free and open-source software library for machine learning and artificial intelligence.',
-    totalDonation: 100_000_000,
-    targetDonation: 1_000_000_000,
-  },
-  {
-    avatar: '/images/projects/teamtrees-avatar.png',
-    background: '/images/projects/teamtrees-bg.png',
-    name: 'Team Trees',
-    tags: ['Climate', 'Go Green'],
-    bio: 'Team Trees, stylized as #TEAMTREES, is a collaborative fundraiser that raised 20 million U.S. ',
-    totalDonation: 100_000_000,
-    targetDonation: 1_000_000_000,
-  },
-  {
-    avatar: '/images/projects/teamseas-avatar.png',
-    background: '/images/projects/teamseas-bg.png',
-    name: 'Team Seas',
-    tags: ['Climate', 'Go Green'],
-    bio: 'Team Seas, stylized as #TeamSeas, is an international collaborative fundraiser that was started by YouTubers MrBeast.',
-    totalDonation: 100_000_000,
-    targetDonation: 1_000_000_000,
-  },
-  {
-    avatar: '/images/projects/gimp-avatar.png',
-    background: '/images/projects/gimp-bg.png',
-    name: 'GIMP',
-    tags: ['Open Source', 'Coding'],
-    bio: 'GIMP is a free and open-source raster graphics editor used for image manipulation and image editing, free-form drawing.',
-    totalDonation: 100_000_000,
-    targetDonation: 1_000_000_000,
-  },
-  {
-    avatar: '/images/projects/svelte-avatar.png',
-    background: '/images/projects/svelte-bg.png',
-    name: 'Svelte',
-    tags: ['Open Source', 'Coding'],
-    bio: 'Svelte is a free and open-source front end compiler created by Rich Harris and maintained by the Svelte core team.',
-    totalDonation: 100_000_000,
-    targetDonation: 1_000_000_000,
-  },
-]
+const store = useMainStore()
+const featuredProjects = store.projects.slice(0,7)
 </script>
 
 <template>
@@ -108,7 +44,7 @@ const featuredProjects = [
 
 
     <!-- Section: Featured Projects -->
-    <section class="featured-projects text-left">
+    <section class="featured-projects text-left" id="featured">
       <Container>
         <div class="section-header">
           <h1 class="section-title | text-3xl font-semibold mb-3">Featured Projects</h1>
@@ -123,7 +59,7 @@ const featuredProjects = [
 
             <div class="w-full md:w-1/4 flex items-center flex-col justify-center py-12">
               <h3 class="text-3xl text-center font-semibold">Discover More Fundraiser</h3>
-              <router-link :to="`/collectives/id`"
+              <router-link :to="`/discover`"
                 class="bg-gradient-primary text-white block text-center py-3 px-5 mt-4 rounded-md text-lg">Find More
               </router-link>
             </div>

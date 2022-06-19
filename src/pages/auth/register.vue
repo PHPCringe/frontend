@@ -1,10 +1,26 @@
 <script setup lang="ts">
 import FormRadio from '~/components/forms/FormRadio.vue'
 const isNextStep = ref(false)
-const gotoNextStep = () => isNextStep.value = true
+const gotoNextStep = () => {
+  console.log("next");
+  isNextStep.value = true
+}
 const router = useRouter()
 const userStore = useUserStore()
 const register = userStore.useRegister()
+
+const orgName = ref('')
+const orgWebsite = ref('')
+const orgGoal = ref('')
+const orgTwitter = ref('')
+
+const registerOrg = () => {
+  userStore.setCurrentUser({
+    name: orgName.value
+  }, "asdasd")
+
+  router.push("/discover")
+}
 </script>
 
 <template>
@@ -53,7 +69,7 @@ const register = userStore.useRegister()
             </p>
 
             <form class="my-5">
-              <form-input label="Display Name" placeholder="Input your display name here" />
+              <form-input label="Display Name" placeholder="Input your display name here" v-model="orgName"/>
               <form-input label="Email" placeholder="" />
               <form-input type="password" label="Password" placeholder="" />
               <form-input type="password" label="Confirm Password" placeholder="" />
@@ -76,16 +92,16 @@ const register = userStore.useRegister()
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </p>
 
-            <form class="my-5" @submit.prevent="submitRegister">
+            <form class="my-5" @submit.prevent="registerOrg">
               <div class="form-group | mb-5">
                 <label for="orgtype" class="block font-bold text-black mb-3">Organization </label>
                 <form-radio id="profit" name="orgtype" label="Profit" value="profit" class="mr-3" />
                 <form-radio id="nonprofit" name="orgtype" label="Non-profit" value="nonprofit" class="mr-3" />
               </div>
               <form-textarea label="Bio" :rows="3" />
-              <form-input type="number" step="1000" label="Donation Goal" placeholder="100.000" prefix="Rp" />
-              <form-input label="Website" placeholder="yourwebsite.com" />
-              <form-input label="Twitter" placeholder="Your twitter username" prefix="@" />
+              <form-input type="number" step="1000" label="Donation Goal" placeholder="100.000" prefix="Rp" v-model="orgGoal"/>
+              <form-input label="Website" placeholder="yourwebsite.com" v-model="orgWebsite"/>
+              <form-input label="Twitter" placeholder="Your twitter username" prefix="@" v-model="orgTwitter"/>
               <form-textarea label="Description" :rows="6" placeholder="Description about your project" />
 
               <form-button type="submit" :block="true">

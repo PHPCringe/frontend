@@ -1,21 +1,16 @@
 ---
 title: About
+layout: home
 ---
 
-<div class="text-center">
+<div class="text-center mt-32">
   <!-- You can use Vue components inside markdown -->
   <div i-carbon-dicom-overlay class="text-4xl -mb-6 m-auto" />
   <h3>About</h3>
 </div>
 
-[Vitesse](https://github.com/antfu/vitesse) is an opinionated [Vite](https://github.com/vitejs/vite) starter template made by [@antfu](https://github.com/antfu) for mocking apps swiftly. With **file-based routing**, **components auto importing**, **markdown support**, I18n, PWA and uses **UnoCSS** for styling and icons.
+Kolektiva adalah sebuah  website crowdfunding dimana para individu dapat melakukan donasi dan menggalang dana  untuk organisasi, event, maupun project mereka.
 
-```js
-// syntax highlighting example
-function vitesse() {
-  const foo = 'bar'
-  console.log(foo)
-}
-```
+Setiap transaksi yang terjadi di kolektiva, selalu transparan dan setiap donatur dan pengguna dapat melihat setiap aliran keuangan yang terjadi. Pengguna dapat melihat setiap pengeluaran pada sebuah organisasi secara transparan.
 
-Check out the [GitHub repo](https://github.com/antfu/vitesse) for more details.
+<div class="mb-50"></div>

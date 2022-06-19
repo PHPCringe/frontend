@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import axios from 'axios'
+import { userInfo } from 'os'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref(localStorage.getItem('token') || null)
@@ -13,6 +14,13 @@ export const useUserStore = defineStore('user', () => {
     localStorage.setItem('token', token)
     isLoggedIn.value = true
     currentUser.value = user
+  }
+
+  const logout = () => {
+    setCurrentUser({}, "")
+    isLoggedIn.value  = false
+    router.push('/auth/login')
+    alert('success logout')
   }
 
   const useRegister = () => {
@@ -98,6 +106,8 @@ export const useUserStore = defineStore('user', () => {
     currentUser,
     token,
     isLoggedIn,
+    logout,
+    setCurrentUser,
     useRegister,
     useLogin,
   }

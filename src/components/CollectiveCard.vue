@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const emit = defineEmits(['click'])
 const props = defineProps({
   avatar: {
     type: String,
@@ -36,6 +37,10 @@ const props = defineProps({
     type: String,
     default: 'Rp',
   },
+  collectiveName: {
+    type: String,
+    default: ""
+  },
   contributors: {
     type: Array,
     default: [
@@ -54,6 +59,13 @@ const props = defineProps({
     ],
   },
 })
+function convertToSlug(Text: string) {
+  return Text.toLowerCase()
+             .replace(/ /g, '-')
+             .replace(/[^\w-]+/g, '');
+}
+
+const url = props.is == "collective" ? `/collectives/${convertToSlug(props.name)}` : `/collectives/${convertToSlug(props.collectiveName)}/contribute/${convertToSlug(props.name)}`
 
 const numberFormat = (num: number) => {
   return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 1 }).format(num)
@@ -61,7 +73,7 @@ const numberFormat = (num: number) => {
 </script>
 
 <template>
-  <div class="card rounded-lg">
+  <div class="card rounded-lg hover:shadow-2xl transition duration-200">
     <div class="card-bg | relative h-20 xl:h-32 rounded-t-lg bg-cover"
       :style="{ backgroundImage: `url(${background})` }">
       <img :src="avatar" :alt="`Image for ${name} `"
@@ -122,8 +134,8 @@ const numberFormat = (num: number) => {
       </div>
 
       <!-- Donate link -->
-      <router-link to="/collectives/id"
-        class="bg-gradient-primary text-white block text-center p-2 text-sm mt-4 rounded-md">
+      <router-link :to="url"
+        class="bg-gradient-primary text-white block text-center p-2 text-sm mt-4 rounded-md" @click="emit('click')">
         Donate Now
       </router-link>
     </div>
