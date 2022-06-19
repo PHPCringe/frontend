@@ -1,0 +1,8 @@
+@keyframes flying {
+    from {
+        transform: translateY(-15px);
+    }
+    to {
+        transform: translateY(15px);
+    }
+}

@@ -16,12 +16,22 @@ const go = () => {
 
 
     <!-- Section Hero -->
-    <section id="hero" class="py-32 xl:py-48 text-center">
-      <div class="hero__text | mx-auto font-semibold tracking-wide">
+    <section id="hero" class="py-32 xl:py-48 text-center relative navbar-container mx-auto">
+      <div class="hero-bg-icons">
+        <img class="hero-bg-icon" src="/images/icons/icon.png">
+        <img class="hero-bg-icon" src="/images/icons/icon2.png">
+        <img class="hero-bg-icon" src="/images/icons/icon3.png">
+        <img class="hero-bg-icon" src="/images/icons/icon4.png">
+        <img class="hero-bg-icon" src="/images/icons/icon5.png">
+        <img class="hero-bg-icon" src="/images/icons/icon6.png">
+        <img class="hero-bg-icon" src="/images/icons/icon7.png">
+        <img class="hero-bg-icon" src="/images/icons/icon8.png">
+      </div>
+      <div class="hero__text | mx-auto font-semibold tracking-wide z-2 relative">
         <h1 class="text-4xl">Collect Your Funding Project <br>With <span class="text-primary-gradient">Kolektiva</span></h1>
         <p class="hero__text-desc | font-normal text-gray-600 mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
       </div>
-      <div class="hero__button | mt-12">
+      <div class="hero__button | mt-12 z-2 relative">
         <router-link to="/sign-up" class="btn btn-outline border border-2 text-primary-gradient font-semibold border-indigo-600">Start Funding</router-link>
         <router-link to="/login" class="btn btn-gradient ml-5">Donate Now</router-link>
       </div>
@@ -203,13 +213,56 @@ meta:
   layout: home
 </route>
 
-<style>
-
+<style lang="scss">
 .hero__text {
   width: min(700px, 100%);
 }
 .hero__text h1 {
-    line-height: 3rem !important;
+  line-height: 3rem !important;
+}
+.hero-bg-icon {
+  @apply absolute z-0;
+
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      animation: flying 2s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+      animation-delay: calc(.5s * #{$i});
+    }
+  }
+
+  &:nth-child(1) {
+    left: 18%;
+    top: 220px;
+    width: 50px;
+  }
+  &:nth-child(2) {
+    left: 10%;
+    top: 100px;
+  }
+  &:nth-child(3) {
+    left: 19%;
+    top: 380px;
+  }
+  &:nth-child(4) {
+    left: 5%;
+    top: 320px;
+  }
+  &:nth-child(5) {
+    right: 9%;
+    top: 420px;
+  }
+  &:nth-child(6) {
+    right: 5%;
+    top: 220px;
+  }
+  &:nth-child(7) {
+    right: 20%;
+    top: 300px;
+  }
+  &:nth-child(8) {
+    right: 15%;
+    top: 100px;
+  }
 }
 .text-primary-gradient {
   background: linear-gradient(-45deg, #4b27cf, #4457FD);
