@@ -62,7 +62,8 @@ const numberFormat = (num: number) => {
 
 <template>
   <div class="card rounded-lg">
-    <div class="card-bg | relative h-20 xl:h-32 rounded-t-lg bg-cover" :style="{ backgroundImage: `url(${background})` }">
+    <div class="card-bg | relative h-20 xl:h-32 rounded-t-lg bg-cover"
+      :style="{ backgroundImage: `url(${background})` }">
       <img :src="avatar" :alt="`Image for ${name} `"
         class="avatar-img absolute w-16 h-16 p-1 bg-white rounded-full object-cover">
     </div>
@@ -72,7 +73,7 @@ const numberFormat = (num: number) => {
       </h3>
 
       <!-- Tags -->
-      <ul class="flex gap-1 my-3 flex-wrap">
+      <ul class="flex gap-0.5 my-3 flex-wrap">
         <li v-for="tag in tags">
           <router-link :to="`/ tags / ${tag} `" class="tag p-1 sm:px-2 px-1 bg-slate-200 rounded-full text-xs">
             {{ tag }}
@@ -84,7 +85,7 @@ const numberFormat = (num: number) => {
       <h5 class="text-lg font-semibold text-gray-700 my-2">
         About
       </h5>
-      <p class="text-xs">
+      <p class="bio | overflow-hidden text-ellipsis text-xs">
         {{ bio }}
       </p>
 
@@ -129,9 +130,18 @@ const numberFormat = (num: number) => {
   </div>
 </template>
 
-<style>
-.card .avatar-img {
-  bottom: -20px;
-  left: 15px;
+<style lang="scss">
+.card {
+  .avatar-img {
+    bottom: -20px;
+    left: 15px;
+  }
+
+  .bio {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 }
 </style>
