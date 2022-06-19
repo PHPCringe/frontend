@@ -17,6 +17,10 @@ const props = defineProps({
         type: Array,
         default: ["Open Source", "Coding"],
     },
+    is: {
+        type: String,
+        default: "collective"
+    },
     bio: {
         type: String,
         default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ",
@@ -63,7 +67,7 @@ const numberFormat = (num: number) => {
         <img :src="avatar" :alt="`Image for ${name}`" class="avatar-img absolute w-16 h-16 p-1 bg-white rounded-full">
     </div>
     <div class="card-content | pt-8 px-5">
-        <h3 class="text-2xl font-semibold">Github</h3>
+        <h3 class="text-2xl font-semibold">{{name}}</h3>
 
         <!-- Tags -->
         <ul class="flex gap-1 my-3 flex-wrap">
@@ -76,14 +80,19 @@ const numberFormat = (num: number) => {
         <h5 class="text-lg font-semibold text-gray-700 my-2">About</h5>
         <p class="text-xs">{{bio}}</p>
 
-        <!-- Donation -->
-        <p class="text-xs mt-3">
-            <span class="font-bold">{{numberFormat(totalDonation)}}</span> 
-            <span class="text-gray-400"> of Rp 1 million Goals</span>
-        </p>
-
-        <!-- Progress bar -->
-        <progress-bar class="my-4"></progress-bar>
+        <template v-if="is == 'collective'">
+            <!-- Donation -->
+            <p class="text-xs mt-3">
+                <span class="font-bold">{{numberFormat(totalDonation)}}</span> 
+                <span class="text-gray-400"> of Rp 1 million Goals</span>
+            </p>
+    
+            <!-- Progress bar -->
+            <progress-bar class="my-4"></progress-bar>
+        </template>
+        <template v-else>
+            <slot name="belowAbout"></slot>
+        </template>
 
 
         <!-- Avatars -->
