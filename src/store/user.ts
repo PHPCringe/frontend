@@ -1,18 +1,28 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import axios from 'axios'
 
+interface User {
+  name: string
+  avatar:string
+}
+
 export const useUserStore = defineStore('user', () => {
   const token = ref(localStorage.getItem('token') || null)
   const isLoggedIn = ref(false)
   const router = useRouter()
-  const currentUser = ref(localStorage.getItem('user')||null)
-
+  const currentUser = ref<User>(localStorage.getItem('user')||null)
 
   const setCurrentUser = (user, token) => {
     localStorage.setItem('user', JSON.stringify(user))
     localStorage.setItem('token', token)
-    isLoggedIn.value = true
+    isLoggedIn.value = token != "" ? true : false
     currentUser.value = user
+  }
+
+  const logout = () => {
+    setCurrentUser({}, "")
+    router.push('/auth/login')
+    alert('success logout')
   }
 
   const useRegister = () => {
@@ -67,23 +77,33 @@ export const useUserStore = defineStore('user', () => {
 
     const login = () => {
       console.log('login', email.value, password.value)
-      axios.post('/auth/login', { email: email.value, password: password.value },
-        {
-          headers: { 'Content-Type': 'application/json' },
-        })
-        .then((res: any) => {
-          isSuccess.value = true
-          currentUser.value = res.data.data.user
-          message.value = res.data.message
-          router.push('discover')
+      isSuccess.value = true
+      setCurrentUser({
+        name: "Ahmad Saugi",
+        avatar: "/images/person1.jpg"
+      }, "testtoken")
+      message.value = "Login success. You will be redirected in several seconds"
+      setTimeout(() => {
+        router.push('/discover')
+      }, 1000)
+    
+      // axios.post('/auth/login', { email: email.value, password: password.value },
+      //   {
+      //     headers: { 'Content-Type': 'application/json' },
+      //   })
+      //   .then((res: any) => {
+      //     isSuccess.value = true
+      //     currentUser.value = res.data.data.user
+      //     message.value = res.data.message
+      //     router.push('discover')
 
 
-        }).catch((err: any) => {
-          console.log('error login', err.response)
-          isSuccess.value = false
+      //   }).catch((err: any) => {
+      //     console.log('error login', err.response)
+      //     isSuccess.value = false
           
-          message.value = err.response.data.message
-        })
+      //     message.value = err.response.data.message
+      //   })
     }
     return {
       login,
@@ -97,6 +117,7 @@ export const useUserStore = defineStore('user', () => {
   return {
     currentUser,
     token,
+    logout,
     isLoggedIn,
     useRegister,
     useLogin,

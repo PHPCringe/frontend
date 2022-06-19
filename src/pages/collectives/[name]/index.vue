@@ -1,3 +1,16 @@
+<script>
+import axios from 'axios'
+
+const collective = ref()
+const props = defineProps({name: String})
+onMounted(() => {
+    axios.get('/collectives/'+props.name)    
+        .then(res => {
+            console.log(res.data)
+        })
+})
+</script>
+
 <template>
     <div class="user-wallpaper | h-64 bg-neutral-600"></div>
     <section class="user-detail">

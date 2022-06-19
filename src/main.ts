@@ -15,7 +15,7 @@ export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
   (ctx) => {
-    axios.defaults.baseURL = 'http://172.23.64.150:8000/api'
+    axios.defaults.baseURL = 'http://192.168.15.89:8000/api'
     ctx.app.use(VueAxios, axios)
     // install all modules under `modules/`
     Object.values(import.meta.globEager('./modules/*.ts')).forEach(i => i.install?.(ctx))

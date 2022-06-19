@@ -12,6 +12,10 @@ const props = defineProps({
     type: String,
     default: 'Github',
   },
+  username: {
+    type: String,
+    default: 'Github',
+  },
   tags: {
     type: Array,
     default: () => ['Open Source', 'Coding'],
@@ -118,7 +122,7 @@ const numberFormat = (num: number) => {
       </div>
 
       <!-- Donate link -->
-      <router-link to="/collectives/id" class="bg-gradient-primary text-white block text-center p-2 text-sm mt-4 rounded-md">
+      <router-link :to="`/collectives/${username}`" class="bg-gradient-primary text-white block text-center p-2 text-sm mt-4 rounded-md">
         Donate Now
       </router-link>
     </div>

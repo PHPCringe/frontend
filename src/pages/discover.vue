@@ -1,9 +1,16 @@
 <script lang="ts" setup>
+import { useDiscover } from '~/composables/useDiscover';
 const store = useMainStore()
 const router = useRouter()
 const route = useRoute()
 
+
+const search = route.query.search || ""
+
 const discover = useDiscover()
+discover.fetchCollectives(search.toString(), 8)
+
+const collectives = discover.collectives
 
 </script>
 
@@ -87,11 +94,21 @@ const discover = useDiscover()
             <a href="#" class="tag">health</a>
             <a href="#" class="tag">extension</a>
             <a href="#" class="tag">covid-19</a>
-          </div>
+          </div>  
         </div>
       </div>
-      <div class="collectives-container | grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-2 gap-10">
-        <collective-card v-for="i in 8" />
+      <div class="collectives-container | grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-2 gap-10" v-if="collectives.length>0">
+        <collective-card 
+          v-for="collective in collectives" 
+          :name="collective.name"
+          :username="collective.username"
+          :avatar="collective.avatar_url"
+          :tags="collective.collective.tags"
+          :total-donation="collective.collective.donation_goal"
+          />
+      </div>
+      <div>
+        <p class="text-center my-8">Collectives not found</p>
       </div>
 
       <!-- Pagination -->
