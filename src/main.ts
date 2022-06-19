@@ -1,8 +1,9 @@
 import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
+import VueAxios from 'vue-axios'
+import axios from 'axios'
 import App from './App.vue'
 import generatedRoutes from '~pages'
-
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
@@ -14,6 +15,8 @@ export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
   (ctx) => {
+    axios.defaults.baseURL = 'http://172.23.64.150:8000/api'
+    ctx.app.use(VueAxios, axios)
     // install all modules under `modules/`
     Object.values(import.meta.globEager('./modules/*.ts')).forEach(i => i.install?.(ctx))
   },

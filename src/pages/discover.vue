@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+const store = useMainStore()
+const router = useRouter()
+const route = useRoute()
+
+const discover = useDiscover()
+
+</script>
+
 <template>
   <section class="discover-hero | relative">
     <div class="discover-hero-bg">
@@ -8,23 +17,34 @@
       <h1 class="text-4xl font-bold text-white">
         Discover Great Projects
       </h1>
-      <div class="input-with-icon | relative w-full mt-10">
-        <div i-carbon-search inline-block color="gray-400" class="absolute left-3 top-3" />
-        <input type="text" class="navbar__search | rounded-full border w-full border-indigo-500 px-5 py-2 pl-10 text-gray-700  bg-transparent" placeholder="Search funding here..">
-      </div>
+      <form @submit.prevent="store.submitSearch">
+        <div class="input-with-icon | relative w-full mt-10">
+          <div i-carbon-search inline-block color="gray-400" class="absolute left-3 top-3" />
+          <input
+            v-model="store.search"
+            type="text"
+            class="navbar__search | rounded-full border w-full border-indigo-500 px-5 py-2 pl-10 text-white  bg-transparent " placeholder="Search funding here.."
+          >
+        </div>
+      </form>
     </div>
   </section>
 
   <!-- Section category -->
   <section class="category | my-16">
     <Container>
-      <div class="w-full md:w-1/2 mx-auto">
-        <h4 class="text-2xl font-semibold text-black">
+      <div v-if="route.query.search">
+        <h1 class="text-black text-4xl font-semibold">
+          Search for: {{ route.query.search }}
+        </h1>
+      </div>
+      <div v-else class="w-full md:w-2/3 mx-auto">
+        <h4 class="text-2xl mb-5 font-semibold text-black">
           Category
         </h4>
 
         <div class="cards-wrapper ">
-          <div class="cards gap-5 grid grid-cols-2">
+          <div class="cards gap-5 grid grid-cols-2 lg:grid-cols-4">
             <div class="card shadow-xl rounded-lg flex w-full items-center hover:shadow-2xl hover:cursor-pointer">
               <img src="/images/icons/categories/organization.svg" alt="Organization Icon">
               <h5 class="text-lg font-semibold">

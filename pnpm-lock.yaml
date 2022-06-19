@@ -11,6 +11,7 @@ specifiers:
   '@vueuse/core': ^8.6.0
   '@vueuse/head': ^0.7.6
   autoprefixer: ^10.4.7
+  axios: ^0.27.2
   critters: ^0.0.16
   cross-env: ^7.0.3
   cypress: ^9.7.0
@@ -39,6 +40,7 @@ specifiers:
   vite-ssg-sitemap: ^0.2.7
   vitest: ^0.14.2
   vue: ^3.2.37
+  vue-axios: ^3.4.1
   vue-demi: ^0.13.1
   vue-i18n: ^9.1.10
   vue-router: ^4.0.16
@@ -64,6 +66,7 @@ devDependencies:
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
   '@vue/test-utils': 2.0.0_vue@3.2.37
   autoprefixer: 10.4.7
+  axios: 0.27.2
   critters: 0.0.16
   cross-env: 7.0.3
   cypress: 9.7.0
@@ -88,6 +91,7 @@ devDependencies:
   vite-ssg: 0.20.1_ah2svnd4q4evbmcsekycrwsdcm
   vite-ssg-sitemap: 0.2.7
   vitest: 0.14.2_sass@1.52.3
+  vue-axios: 3.4.1_axios@0.27.2+vue@3.2.37
   vue-tsc: 0.37.7_typescript@4.7.3
 
 packages:
@@ -2553,6 +2557,15 @@ packages:
     resolution: {integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==}
     dev: true
 
+  /axios/0.27.2:
+    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
+    dependencies:
+      follow-redirects: 1.15.1
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /babel-plugin-dynamic-import-node/2.3.3:
     resolution: {integrity: sha512-jZVI+s9Zg3IqA/kdi0i6UDCybUI3aSBLnglhYbSSjKlV7yF1F/5LWv8MakQmvYpnbJDS6fcBL2KzHSxNCMtWSQ==}
     dependencies:
@@ -4401,6 +4414,16 @@ packages:
 
   /flatted/3.2.5:
     resolution: {integrity: sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==}
+    dev: true
+
+  /follow-redirects/1.15.1:
+    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
     dev: true
 
   /foreach/2.0.5:
@@ -7802,6 +7825,16 @@ packages:
       - sass
       - stylus
       - supports-color
+    dev: true
+
+  /vue-axios/3.4.1_axios@0.27.2+vue@3.2.37:
+    resolution: {integrity: sha512-8YZYUOQrBEJktxoQtrM4rr2LfVcDaWfJqv8MqtLlgLlkuBvCYKFSZSo6AXQ4YcCzdgccDqstmuaEh68lcH9xWA==}
+    peerDependencies:
+      axios: '>= 0.20.0'
+      vue: ^3.0.0 || ^2.0.0
+    dependencies:
+      axios: 0.27.2
+      vue: 3.2.37
     dev: true
 
   /vue-demi/0.13.1_vue@3.2.37:

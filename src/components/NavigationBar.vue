@@ -5,7 +5,7 @@ if (window.innerWidth >= 1024)
 </script>
 
 <template>
-  <div class="navbar | h-24 w-full relative">
+  <div class="navbar |  w-full relative">
     <div class="navbar-container | mx-auto flex justify-between py-8 px-8">
       <div class="navbar__logo">
         <router-link to="/">

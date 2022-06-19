@@ -5,6 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Alert: typeof import('./components/Alert.vue')['default']
     CardUserSmall: typeof import('./components/CardUserSmall.vue')['default']
     Collapse: typeof import('./components/Collapse.vue')['default']
     CollectiveCard: typeof import('./components/CollectiveCard.vue')['default']

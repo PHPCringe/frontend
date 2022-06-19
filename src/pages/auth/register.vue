@@ -3,11 +3,8 @@ import FormRadio from '~/components/forms/FormRadio.vue'
 const isNextStep = ref(false)
 const gotoNextStep = () => isNextStep.value = true
 const router = useRouter()
-
-const submitRegister = () => {
-  console.log('submit')
-  router.push('/dashboard')
-}
+const userStore = useUserStore()
+const register = userStore.useRegister()
 </script>
 
 <template>
@@ -26,13 +23,14 @@ const submitRegister = () => {
           <p class="text-sm mb-10">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit
           </p>
-
-          <form class="my-5">
-            <form-input label="Display Name" placeholder="Input your display name here" />
-            <form-input label="Email" placeholder="" />
-            <form-input type="password" label="Password" placeholder="" />
-            <form-input type="password" label="Confirm Password" placeholder="" />
-            <form-button :block="true">
+          <alert v-if="register.successMessage.value.length" :message="register.successMessage.value" />
+          <alert v-if="register.errorMessage.value.length" :message="register.errorMessage.value"  type="danger"/>
+          <form class="my-5" @submit.prevent="register.submitRegister('personal')">
+            <form-input v-model="register.name.value" label="Display Name" placeholder="Input your display name here" />
+            <form-input v-model="register.email.value" label="Email" placeholder="" />
+            <form-input v-model="register.password.value" type="password" label="Password" placeholder="" />
+            <form-input v-model="register.confirmPassword.value" type="password" label="Confirm Password" placeholder="" />
+            <form-button :block="true" type="submit">
               Sign Up
             </form-button>
           </form>
@@ -59,7 +57,7 @@ const submitRegister = () => {
               <form-input label="Email" placeholder="" />
               <form-input type="password" label="Password" placeholder="" />
               <form-input type="password" label="Confirm Password" placeholder="" />
-              <form-button type="button" :block="true" @click="gotoNextStep">
+              <form-button type="button" :block="true" @click="gotoNextStep()">
                 Next Step
               </form-button>
 
