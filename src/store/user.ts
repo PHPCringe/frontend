@@ -75,7 +75,7 @@ export const useUserStore = defineStore('user', () => {
           isSuccess.value = true
           currentUser.value = res.data.data.user
           message.value = res.data.message
-          router.push('discover')
+          router.push('/discover')
 
 
         }).catch((err: any) => {
