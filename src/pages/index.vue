@@ -17,7 +17,7 @@ const go = () => {
 
     <!-- Section Hero -->
     <section id="hero" class="py-32 xl:py-48 text-center relative navbar-container mx-auto">
-      <div class="hero-bg-icons">
+      <div class="hero-bg-icons hidden lg:block">
         <img class="hero-bg-icon" src="/images/icons/icon.png">
         <img class="hero-bg-icon" src="/images/icons/icon2.png">
         <img class="hero-bg-icon" src="/images/icons/icon3.png">
@@ -47,12 +47,11 @@ const go = () => {
         </div>
         <div class="section-body">
           <div  class="flex flex-wrap flex-row row">
-            <collective-card v-for="i in 7" class="w-1/4"></collective-card>
+            <collective-card v-for="i in 7" class="w-full md:w-1/4"></collective-card>
 
-            <div class="w-1/4 flex items-center flex-col justify-center">
+            <div class="w-full md:w-1/4 flex items-center flex-col justify-center py-12">
               <h3 class="text-3xl text-center font-semibold">Discover More Fundraiser</h3>
               <router-link :to="`/collectives/id`" class="bg-gradient-primary text-white block text-center py-3 px-5 mt-4 rounded-md text-lg">Find More </router-link>
-
             </div>
           </div>
         </div>
@@ -61,16 +60,16 @@ const go = () => {
 
 
     <!-- Section: Different -->
-    <section class="different my-48">
+    <section class="different my-32 md:my-48">
       <Container>
-        <div class="flex">
-          <div class="different__left | w-1/2">
+        <div class="flex flex-wrap">
+          <div class="different__left | w-full md:w-1/2">
             <div class="w-2/3 mt-10 bg-slate-300 aspect-square mx-auto relative">
               <div class="small-square | bg-gray-700 w-20 aspect-square right--8 top--8 shadow-lg absolute"></div>
               <div class="small-square | bg-gray-700 w-20 aspect-square left--8 bottom--8 shadow-lg absolute"></div>
             </div>
           </div>
-          <div class="different__right | w-1/2">
+          <div class="different__right | w-full md:w-1/2 pt-32 md:pt-0">
             <h1 class="text-4xl text-right font-semibold text-black mb-10">What Makes Us Different From Others</h1>
 
             <Collapse :open="true">
@@ -133,14 +132,14 @@ const go = () => {
     <!-- Section: Get to know us better -->
     <section class="different text-left my-48">
       <Container>
-        <div class="flex">
-          <div class="left | w-2/3">
+        <div class="flex flex-wrap">
+          <div class="left | w-full md:w-2/3 order-1 md:order-0">
             <h1 class="text-4xl  font-semibold text-black">Get to Know Us Better</h1>
             <p class="mt-10 w-60%">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
             <router-link to="/" class="px-5 inline-block py-2 text-lg mt-12 rounded-lg hover:bg-blue-500 bg-blue-600 text-white font-bold">Learn More</router-link>
 
             <!-- Grid stats -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 mt-16">
+            <div class="grid grid-cols-2 lg:grid-cols-4 mt-16 gap-8">
               <div>
                 <h3 class="font-bold text-3xl mb-3">5</h3>
                 <p>Years Experience</p>
@@ -159,8 +158,8 @@ const go = () => {
               </div>
             </div>
           </div>
-          <div class="right | w-1/3">
-            <img src="/images/peopleLaptop.png" alt="Our services">
+          <div class="right | w-full md:w-1/3 order-0 md:order-1">
+            <img src="/images/peopleLaptop.png" alt="Our services" class="hidden md:block">
           </div>
         </div>
       </Container>

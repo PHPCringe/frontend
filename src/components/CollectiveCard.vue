@@ -66,9 +66,9 @@ const numberFormat = (num: number) => {
         <h3 class="text-2xl font-semibold">Github</h3>
 
         <!-- Tags -->
-        <ul class="flex gap-1 my-3">
+        <ul class="flex gap-1 my-3 flex-wrap">
             <li v-for="tag in tags" >
-                <router-link :to="`/tags/${tag}`" class="tag p-1 px-2 bg-slate-200 rounded-full text-xs">{{tag}}</router-link>
+                <router-link :to="`/tags/${tag}`" class="tag p-1 sm:px-2 px-1 bg-slate-200 rounded-full text-xs">{{tag}}</router-link>
             </li>
         </ul>
 

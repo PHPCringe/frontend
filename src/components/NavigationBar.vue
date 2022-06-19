@@ -5,7 +5,9 @@
     <div class="navbar | h-24 w-full">
         <div class="navbar-container | mx-auto flex justify-between py-8">
             <div class="navbar__logo">
-                <img src="/images/Logo.png" alt="" srcset="">
+                <router-link to="/">
+                    <img src="/images/Logo.png" alt="" srcset="">
+                </router-link>
             </div>
             <ul class="navbar__menu | flex items-center">
                 <li class='navbar__menu-item'>
